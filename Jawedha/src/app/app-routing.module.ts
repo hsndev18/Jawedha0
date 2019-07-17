@@ -9,12 +9,41 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: './home/home.module#HomePageModule'
+    loadChildren: '../pages/home/home.module#HomePageModule'
   },
   {
     path: 'list',
-    loadChildren: './list/list.module#ListPageModule'
-  }
+    loadChildren: '../pages/list/list.module#ListPageModule'
+  },
+  {
+    path: 'restaurants',
+    loadChildren: '../pages/restaurants/restaurants.module#RestaurantsPageModule'
+  },
+  {
+    path: 'cafes',
+    loadChildren: '../pages/cafes/cafes.module#CafesPageModule'
+  },
+  {
+    path: 'families',
+    loadChildren: '../pages/families/families.module#FamiliesPageModule'
+  },
+  {
+    path: 'tracks',
+    loadChildren: '../pages/tracks/tracks.module#TracksPageModule'
+  },
+  {
+    path: 'museums',
+    loadChildren: '../pages/museums/museums.module#MuseumsPageModule'
+  },
+  {
+    path: 'contact',
+    loadChildren: '../pages/contact/contact.module#ContactPageModule'
+  },
+  {
+    path: 'aboutus',
+    loadChildren: '../pages/aboutus/aboutus.module#AboutusPageModule'
+  },
+  { path: 'details', loadChildren: '../pages/details/details.module#DetailsPageModule' }
 ];
 
 @NgModule({

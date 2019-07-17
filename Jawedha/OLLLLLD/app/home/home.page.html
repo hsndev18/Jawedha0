@@ -1,0 +1,88 @@
+<ion-header >
+  <ion-toolbar color="hassan">
+    <ion-buttons slot="start">
+      <ion-menu-button  color="light"></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="light">
+        جوَدها
+    </ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="hassan">
+      <ion-searchbar showCancelButton="never" color="light"></ion-searchbar>
+  </ion-toolbar>
+  <ion-segment color="light" (ionChange)="segmentChanged($event)">
+  <ion-segment-button color="light" value="map" checked>
+    <ion-icon name="map"></ion-icon>
+  </ion-segment-button>
+  <ion-segment-button color="light" value="list">
+      <ion-icon name="list"></ion-icon>
+    </ion-segment-button>
+    </ion-segment>
+</ion-header>
+
+<ion-content no-bounce>
+
+    <!--<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content>
+          pullingIcon="arrow-dropdown"
+          pullingText="Pull to refresh"
+          refreshingSpinner="circles"
+>
+        </ion-refresher-content>
+      </ion-refresher>-->
+
+
+<div id="map_canvas"  [style.display]="segmentValue == 'map' ? 'block' : 'none'"></div>
+<ion-list [style.display]="segmentValue == 'list' ? 'block' : 'none'">
+    <ion-item text-wrap detail-none>
+      <ion-grid>
+        <ion-row>
+          <ion-col width-25>
+            <img src="https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png">
+          </ion-col>
+          <ion-col>
+            <h2>بيتنا</h2>
+            <p>
+              <ion-icon name="star"></ion-icon>
+              5 Reviews
+            </p>
+            <p>العنوان المدينة</p>
+            <p>متحف</p>
+          </ion-col>
+          <ion-col width-20 text-right>
+            <p>5km</p>
+            <p><ion-icon name="logo-usd"></ion-icon></p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>      
+    </ion-item>
+    <ion-item text-wrap detail-none>
+        <ion-grid>
+          <ion-row>
+            <ion-col width-25>
+              <img src="https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png">
+            </ion-col>
+            <ion-col>
+              <h2>بيتنا</h2>
+              <p>
+                <ion-icon name="star"></ion-icon>
+                5 Reviews
+              </p>
+              <p>العنوان المدينة</p>
+              <p>متحف</p>
+            </ion-col>
+            <ion-col width-20 text-right>
+              <p>5km</p>
+              <p><ion-icon name="logo-usd"></ion-icon></p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>      
+      </ion-item>
+  </ion-list>
+</ion-content>
+
+<!--<ion-bottom-drawer [style.display]="segmentValue == 'map' ? 'block' : 'none'"  [(state)]="state" [shouldBounce]="shouldBounce" [dockedHeight]="dockedHeight" [minimumHeight]="minimumHeight" [distanceTop]="topDistance">
+  <div shadow class="drawer-content">
+    Bottom Drawer Content
+  </div>
+</ion-bottom-drawer>-->

@@ -1,0 +1,48 @@
+<ion-content>
+  <div class="slider-banner">
+    <ion-slides
+      no-margin
+      pager="true"
+      loop="true"
+      *ngIf="this.place"
+      slidesPerView="1"
+      autoplay="2000"
+      speed="500"
+    >
+      <ion-slide
+        *ngFor="let photo of this.place.photos; let j = index"
+        class="slide"
+      >
+        <img class="slider-image" no-padding src="{{ photo }}" />
+      </ion-slide>
+    </ion-slides>
+  </div>
+  <ion-buttons slot="end">
+    <ion-back-button defaultHref="home" text=""></ion-back-button>
+  </ion-buttons>
+  <div>
+    <ion-item>
+      <ion-label>
+        <h2 text-right>
+          <ion-text>{{ this.place.name }}</ion-text>
+        </h2>
+        <h2 text-left><ion-text>155</ion-text></h2>
+        <p [innerHTML]="this.place.description"></p>
+      </ion-label>
+    </ion-item>
+  </div>
+  <div id="map_canvas"></div>
+  <ion-card *ngFor="let data of artistData">
+    <ion-card-content>
+      <ion-label>{{ data.data }}</ion-label>
+      <br />
+      <rating
+        ngModel="data.tempRating"
+        readonly="false"
+        size="default"
+        (ngModelChange)="onModelChange($event, data)"
+      >
+      </rating>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
