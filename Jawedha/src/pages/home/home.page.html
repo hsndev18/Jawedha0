@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="hassan">
+  <ion-toolbar color="z8h">
     <ion-buttons slot="start">
       <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
@@ -7,15 +7,17 @@
       جوَدها
     </ion-title>
   </ion-toolbar>
-  <ion-toolbar color="hassan">
+  <ion-toolbar color="z8h">
     <ion-searchbar
+      (ionInput)="this.getItems($event)"
       type="text"
       debounce="500"
       showCancelButton="never"
       color="light"
+      placeholder="بحث"
     ></ion-searchbar>
   </ion-toolbar>
-  <ion-segment color="hassan" (ionChange)="segmentChanged($event)">
+  <ion-segment color="z8h" (ionChange)="segmentChanged($event)">
     <ion-segment-button value="map" checked>
       <ion-icon name="map" color="light"></ion-icon>
     </ion-segment-button>

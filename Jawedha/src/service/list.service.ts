@@ -15,6 +15,6 @@ export class ListService {
 
 
     getData(): Observable<any> {
-        return this.http.get('http://g2.iobootcamp.com/api/v1/serviceslist', { responseType: 'text' });
+        return this.http.get('http://g2.iobootcamp.com/ar/api/v1/serviceslist', { responseType: 'text' });
     }
 }

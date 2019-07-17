@@ -39,6 +39,8 @@ export class HomePage implements OnInit {
     artistData: any;
     nav: any;
     mapPlace: any;
+    searchItems: any;
+    itemsBackup: any;
 
     constructor(
         private platform: Platform,
@@ -54,7 +56,7 @@ export class HomePage implements OnInit {
         this.dockedHeight = 150;
         this.topDistance = 50;
         this.state = DrawerState.Bottom;
-        this.items = [{
+        this.items = [/*{
             name: 'hello',
             category: 'hello2',
             photos: ['https://spaceplace.nasa.gov/review/blue-sky/bluesky.en.png'],
@@ -70,7 +72,7 @@ export class HomePage implements OnInit {
                 lat: 18.2958277,
                 lng: 42.7100199
             },
-        }];
+        }*/];
         this.test = null;
     }
 
@@ -89,6 +91,28 @@ export class HomePage implements OnInit {
     openAddPage(data) {
         console.log('test');
         this.nav.push('details', data);
+    }
+
+    initializeItems() {
+        this.items = this.itemsBackup;
+    }
+
+    getItems(ev) {
+
+        this.initializeItems();
+
+        // set val to the value of the ev target
+        let val = ev.target.value;
+
+
+        if (val && val.trim() != '') {
+            this.items = this.items.filter((item) => {
+                console.log('test');
+                return (item.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
+            });
+        }
+
+
     }
 
     getArtist() {
@@ -122,6 +146,7 @@ export class HomePage implements OnInit {
             }
 
             this.items = info;
+            this.itemsBackup = info;
             console.log('Data', info);
         });
     }
@@ -146,7 +171,7 @@ export class HomePage implements OnInit {
 
     doRefresh(event) {
         console.log('Begin async operation');
-       // this.getList();
+        // this.getList();
 
         setTimeout(() => {
             console.log('Async operation has ended');
